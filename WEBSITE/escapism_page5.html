@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Constant Background Transition</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align text to the top */
+            overflow: hidden;
+            position: relative;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            letter-spacing: 0.3rem;
+            font-size: .9rem;
+        }
+
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 200% 200%;
+            transition: opacity 3s ease-in-out; /* Smooth opacity transition */
+            z-index: -1; /* Keep it behind the content */
+        }
+
+        /* Define different color gradients for each layer */
+        .background-layer-1 {
+            background: radial-gradient(circle, rgb(255, 251, 0), rgb(255, 187, 0), pink, rgb(0, 50, 135));
+            opacity: 1; /* Initially visible */
+        }
+
+        .background-layer-2 {
+            background: radial-gradient(circle, rgb(92, 0, 86), rgb(255, 196, 0), rgb(255, 106, 131), rgb(0, 21, 255));
+            opacity: 0;
+        }
+
+        .background-layer-3 {
+            background: radial-gradient(circle, rgb(63, 255, 60), rgb(142, 255, 142), lightpink, lightyellow);
+            opacity: 0;
+        }
+
+        .background-layer-4 {
+            background: radial-gradient(circle, darkblue, purple, darkorange, darkred);
+            opacity: 0;
+        }
+
+        /* Text styling */
+        .text {
+            font-size: 1.5em;
+            line-height: 1.6;
+            max-width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-layer background-layer-1"></div>
+    <div class="background-layer background-layer-2"></div>
+    <div class="background-layer background-layer-3"></div>
+    <div class="background-layer background-layer-4"></div>
+
+    <div class="text">
+        And I started thinking about escapism, and why we tend to look down on it. We have a bias — myself included, on occasion — against works that allow people to burst out of the bonds of unpleasant reality. They’re automatically less smart or interesting than works which seek to confront you with the real world’s unpleasantness, to impress on you how unsavory our world really is.
+    </div>
+
+    <script>
+        function changeBackground() {
+            const layers = document.querySelectorAll('.background-layer');
+            
+            // Fade all layers in and out, rotating through the colors
+            let currentLayerIndex = 0;
+            
+            setInterval(() => {
+                // Fade out the current layer
+                layers[currentLayerIndex].style.opacity = 0;
+
+                // Move to the next layer in the sequence
+                currentLayerIndex = (currentLayerIndex + 1) % layers.length;
+
+                // Fade in the next layer
+                layers[currentLayerIndex].style.opacity = 1;
+            }, 3500); // Change background every 3 seconds
+        }
+
+        window.onload = function() {
+            changeBackground(); // Start the background transition when the page loads
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+

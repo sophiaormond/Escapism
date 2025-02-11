@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Background Fade</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            font-size: 1.5em;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Text styling */
+        .text {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        .word {
+            display: inline-block;
+            margin: 0 5px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .word:hover {
+            transform: translateY(-10px) translateX(10px);
+        }
+
+        /* Create two pseudo-elements for background layers */
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 200% 200%;
+            transition: opacity 2s ease-in-out; /* Smooth opacity transition */
+            z-index: -1; /* Keep it behind text */
+        }
+
+        .background-layer-1 {
+            background: radial-gradient(circle, #5eff00, #D8C3FF, #8c50fa, #e1c0e0, #e0fd4d);
+        }
+
+        .background-layer-2 {
+            background: radial-gradient(circle, #ffac25, #ffaa00, #8c50fa, #e1c0e0, hsl(70, 100%, 55%));
+            opacity: 0; /* Start with the second background hidden */
+        }
+    </style>
+</head>
+<body onclick="window.location.href='escapism_page4.html';">
+    <div class="background-layer background-layer-1"></div>
+    <div class="background-layer background-layer-2"></div>
+
+    <div class="text">
+        Are stories that let us escape reality always inconsequential fluff? That’s what people argue — but the reverse is true. 
+        <p>Escapism is a literary impulse, and escapist art is the highest art.</p>
+    </div>
+
+    <script>
+        function changeBackground() {
+            const layer1 = document.querySelector('.background-layer-1');
+            const layer2 = document.querySelector('.background-layer-2');
+
+            // Fade out the first background and fade in the second one
+            layer1.style.opacity = 0;
+            layer2.style.opacity = 1;
+
+            // After 2 seconds, fade back to the first background
+            setTimeout(() => {
+                layer1.style.opacity = 1;
+                layer2.style.opacity = 0;
+            }, 2000);
+        }
+
+        // Start background transition as soon as the page loads
+        window.onload = () => {
+            changeBackground(); // Start fading immediately
+            setInterval(changeBackground, 5000); // Continue the cycle every 5 seconds
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+

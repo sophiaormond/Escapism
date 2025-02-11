@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: radial-gradient(circle, #d0ffb5, #D8C3FF, #8c50fa, #e1c0e0, #e0fd4d);
+            background-size: 100%;  /* Start zoomed in */
+            background-position: center;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            font-size: 2em;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            padding: 20px;
+            box-sizing: border-box;
+
+            /* Apply both animations */
+            animation: fadeInBackground 3s ease-in forwards, bounceBody 5s ease-in-out infinite;
+        }
+
+        /* Background Fade-In & Zoom-Out */
+        @keyframes fadeInBackground {
+            0% {
+                opacity: 0;
+                background-size: 1%;
+            }
+            100% {
+                opacity: 1;
+                background-size: 100%;
+            }
+        }
+
+        /* Bounce Animation */
+        @keyframes bounceBody {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .text {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        .word {
+            display: inline-block;
+            margin: 0 5px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .word:hover, .word:active {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body onclick="window.location.href='escapism_page3.html';">
+    <div class="text">
+        <span class="word">Is</span>
+        <span class="word">escapism</span>
+        <span class="word">the</span>
+        <span class="word">enemy</span>
+        <span class="word">of</span>
+        <span class="word">smart</span>
+        <span class="word">science</span>
+        <span class="word">fiction?</span>
+    </div>
+
+    <script>
+        window.onload = () => {
+            document.body.style.opacity = 1;
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
