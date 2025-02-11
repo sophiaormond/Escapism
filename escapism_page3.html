@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Continuous Background Fade</title>
     <style>
-        body {
+        body { 
             margin: 0;
             height: 100vh;
             display: flex;
@@ -23,7 +23,7 @@
             overflow: hidden;
         }
 
-        /* Text styling */
+
         .text {
             display: flex;
             flex-wrap: wrap;
@@ -42,7 +42,7 @@
             transform: translateY(-10px) translateX(10px);
         }
 
-        /* Create two pseudo-elements for background layers */
+        
         .background-layer {
             position: absolute;
             top: 0;
@@ -50,8 +50,8 @@
             width: 100%;
             height: 100%;
             background-size: 200% 200%;
-            transition: opacity 2s ease-in-out; /* Smooth opacity transition */
-            z-index: -1; /* Keep it behind text */
+            transition: opacity 2s ease-in-out; 
+            z-index: -1; 
         }
 
         .background-layer-1 {
@@ -60,7 +60,7 @@
 
         .background-layer-2 {
             background: radial-gradient(circle, #ffac25, #ffaa00, #8c50fa, #e1c0e0, hsl(70, 100%, 55%));
-            opacity: 0; /* Start with the second background hidden */
+            opacity: 0; 
         }
     </style>
 </head>

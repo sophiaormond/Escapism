@@ -10,7 +10,7 @@
             height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align text to the top */
+            align-items: flex-start; 
             overflow: hidden;
             position: relative;
             font-family: Arial, sans-serif;
@@ -29,14 +29,14 @@
             width: 100%;
             height: 100%;
             background-size: 200% 200%;
-            transition: opacity 3s ease-in-out; /* Smooth opacity transition */
-            z-index: -1; /* Keep it behind the content */
+            transition: opacity 3s ease-in-out; 
+            z-index: -1; 
         }
 
-        /* Define different color gradients for each layer */
+        
         .background-layer-1 {
             background: radial-gradient(circle, rgb(255, 251, 0), rgb(255, 187, 0), pink, rgb(0, 50, 135));
-            opacity: 1; /* Initially visible */
+            opacity: 1; 
         }
 
         .background-layer-2 {
@@ -53,8 +53,6 @@
             background: radial-gradient(circle, darkblue, purple, darkorange, darkred);
             opacity: 0;
         }
-
-        /* Text styling */
         .text {
             font-size: 1.5em;
             line-height: 1.6;
